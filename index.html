@@ -15,9 +15,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="./assets/images/learnview-logo.jpeg">
+  <link rel="preload" as="image" href="./assets/images/learnview-logo-cropped.png">
 </head>
 
 <body id="top">
@@ -26,11 +26,13 @@
     <div class="container">
 
       <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
-        <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+        <span class="menu-icon" aria-hidden="true"><span></span></span>
+        <span class="close-icon" aria-hidden="true"></span>
       </button>
 
-      <a href="#home" class="logo" aria-label="LearnView home">LearnView</a>
+      <a href="#home" class="logo" aria-label="LearnView home">
+        <img src="./assets/images/learnview-logo-cropped.png" width="160" height="61" alt="LearnView">
+      </a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -47,10 +49,10 @@
 
       <div class="header-actions">
         <a class="action-btn" href="https://wa.me/27787460329" aria-label="Chat on WhatsApp">
-          <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
+          WhatsApp
         </a>
         <a class="action-btn" href="mailto:infolearnview@gmail.com" aria-label="Email LearnView">
-          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+          Email
         </a>
       </div>
 
@@ -60,60 +62,64 @@
   <main>
     <article>
 
-      <section class="section hero has-bg-image" id="home" aria-label="home">
+      <section class="section hero" id="home" aria-label="home">
         <div class="container">
           <div class="hero-content">
             <p class="hero-kicker">Learn Smarter. Learn Better.</p>
 
             <h1 class="h1 hero-title">
-              <span class="span">Personalised tutoring</span> that puts every learner first.
+              Tutoring that adapts to your child.
             </h1>
 
             <p class="hero-text">
-              LearnView provides tailored tutoring sessions designed around each learner's pace, goals, and academic needs.
+              LearnView offers personalised one on one and group tutoring for Grade 5 to Grade 12 learners, online or in person in Louis Trichardt.
             </p>
 
             <div class="hero-actions">
               <a href="#book" class="btn">Book a Session</a>
-              <a href="#services" class="btn btn-secondary">View Services</a>
+              <a href="https://wa.me/27787460329" class="btn btn-secondary">WhatsApp Us</a>
             </div>
           </div>
+
+          <figure class="hero-logo-card">
+            <img src="./assets/images/learnview-logo-cropped.png" width="905" height="343" alt="LearnView logo">
+          </figure>
         </div>
       </section>
 
       <section class="section trust" aria-label="LearnView tutoring options">
         <div class="container">
           <h2 class="h2 section-title">
-            <span class="span">Tutoring</span> built around real learners
+            Practical support for <span class="span">school learners</span>
           </h2>
 
           <ul class="has-scrollbar trust-list">
             <li class="scrollbar-item">
               <div class="trust-card">
-                <div class="card-icon"><ion-icon name="person-outline" aria-hidden="true"></ion-icon></div>
+                <div class="card-icon">1:1</div>
                 <h3 class="h3 card-title">One on one tutoring</h3>
-                <p>Focused attention for learners who need personal support, pacing, and guided confidence.</p>
+                <p>Individual attention for learners who need steady guidance and a clear plan.</p>
               </div>
             </li>
             <li class="scrollbar-item">
               <div class="trust-card">
-                <div class="card-icon"><ion-icon name="people-outline" aria-hidden="true"></ion-icon></div>
+                <div class="card-icon">Group</div>
                 <h3 class="h3 card-title">Group classes</h3>
-                <p>Small, structured classes that keep learners engaged while still allowing individual feedback.</p>
+                <p>Small classes for learners who do well with routine, discussion, and shared revision.</p>
               </div>
             </li>
             <li class="scrollbar-item">
               <div class="trust-card">
-                <div class="card-icon"><ion-icon name="laptop-outline" aria-hidden="true"></ion-icon></div>
+                <div class="card-icon">Online</div>
                 <h3 class="h3 card-title">Online and in person</h3>
-                <p>Flexible tutoring options for families who need convenient lessons that fit their schedule.</p>
+                <p>Choose the lesson format that suits your child and your family's week.</p>
               </div>
             </li>
             <li class="scrollbar-item">
               <div class="trust-card">
-                <div class="card-icon"><ion-icon name="school-outline" aria-hidden="true"></ion-icon></div>
+                <div class="card-icon">5-12</div>
                 <h3 class="h3 card-title">Grades 5 to 12</h3>
-                <p>Support for core school subjects, exam preparation, revision habits, and academic confidence.</p>
+                <p>Academic support for senior primary and high school learners.</p>
               </div>
             </li>
           </ul>
@@ -124,57 +130,57 @@
         <div class="container">
           <p class="section-subtitle">Services</p>
           <h2 class="h2 section-title">
-            Every session is <span class="span">tailored learner by learner</span>
+            Tutoring services with <span class="span">clear, personal support</span>
           </h2>
 
           <ul class="grid-list">
             <li>
               <div class="service-card">
-                <ion-icon name="person-circle-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">1:1</div>
                 <h3 class="h3 card-title">One on one tutoring</h3>
-                <p>Personalised lessons that focus on each learner's specific strengths, gaps, pace, and goals.</p>
+                <p>Lessons shaped around the learner's current understanding, schoolwork, and goals.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="people-circle-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">Group</div>
                 <h3 class="h3 card-title">Group tutoring</h3>
-                <p>Supportive group lessons for learners who benefit from interaction, routine, and shared revision.</p>
+                <p>Structured group sessions with space for questions, practice, and revision.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="videocam-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">Online</div>
                 <h3 class="h3 card-title">Online tutoring</h3>
-                <p>Clear, structured online sessions for learners who need flexibility without losing accountability.</p>
+                <p>Online lessons that stay focused, practical, and easy for parents to arrange.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">Local</div>
                 <h3 class="h3 card-title">In person tutoring</h3>
-                <p>Face to face tutoring for families who prefer direct classroom-style support and guidance.</p>
+                <p>In person lessons for families in and around Louis Trichardt.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">Exam</div>
                 <h3 class="h3 card-title">Exam preparation</h3>
-                <p>Revision planning, past paper practice, topic targeting, and confidence building before tests.</p>
+                <p>Past paper practice, revision planning, topic repair, and exam confidence.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">Study</div>
                 <h3 class="h3 card-title">Homework support</h3>
-                <p>Patient homework and revision support that helps learners understand the work, not just finish it.</p>
+                <p>Support that helps learners understand the work instead of simply completing tasks.</p>
               </div>
             </li>
             <li>
               <div class="service-card">
-                <ion-icon name="ribbon-outline" aria-hidden="true"></ion-icon>
+                <div class="card-icon">5-12</div>
                 <h3 class="h3 card-title">Grades 5 to 12 support</h3>
-                <p>Academic support for senior primary and high school learners who need stronger foundations.</p>
+                <p>Support for learners building foundations, catching up, or preparing ahead.</p>
               </div>
             </li>
           </ul>
@@ -183,25 +189,31 @@
 
       <section class="section about" id="about" aria-label="about LearnView">
         <div class="container">
-          <div class="about-banner">
-            <img src="./assets/images/learnview-logo.jpeg" width="900" height="600" loading="lazy" alt="LearnView logo" class="w-100">
+          <div class="about-panel">
+            <p class="panel-label">Local tutoring</p>
+            <h3>Louis Trichardt based support for families who want steady academic progress.</h3>
+            <ul>
+              <li>Grade 5 to Grade 12</li>
+              <li>Online or in person</li>
+              <li>One on one or group sessions</li>
+            </ul>
           </div>
 
           <div class="about-content">
             <p class="section-subtitle">About LearnView</p>
             <h2 class="h2 section-title">
-              The learner is at the center of <span class="span">every session</span>
+              Personal lessons, not one-size-fits-all tutoring.
             </h2>
 
             <p>
-              LearnView makes tutoring personal. Lessons are planned around each student's strengths, weaknesses, pace, and learning goals so that support feels practical, patient, and focused.
+              LearnView keeps the learner at the center of every session. Lessons are adjusted around the student's strengths, weaker areas, pace, and school goals so that tutoring feels practical and encouraging.
             </p>
 
             <ul class="about-list">
-              <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Personalised lessons for each student</li>
-              <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Academic improvement and confidence building</li>
-              <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Support that adapts as the learner grows</li>
-              <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Clear communication with parents</li>
+              <li><span class="check-mark" aria-hidden="true"></span> Lessons matched to the learner's current schoolwork</li>
+              <li><span class="check-mark" aria-hidden="true"></span> Patient support for confidence and consistency</li>
+              <li><span class="check-mark" aria-hidden="true"></span> Focus on gaps, revision habits, and exam readiness</li>
+              <li><span class="check-mark" aria-hidden="true"></span> Clear communication with parents about next steps</li>
             </ul>
           </div>
         </div>
@@ -212,10 +224,10 @@
           <div class="booking-intro">
             <p class="section-subtitle">Book a Session</p>
             <h2 class="h2 section-title">
-              Tell us what your learner needs <span class="span">and we will follow up</span>
+              Book a session or ask about availability.
             </h2>
             <p>
-              Complete the form below to request a tutoring session. The form is prepared for future Google Sheets and LearnView Nexus integration.
+              Send through your preferred lesson details and LearnView will follow up to confirm the best time and format.
             </p>
           </div>
 
@@ -270,7 +282,7 @@
               </label>
             </div>
 
-            <button type="submit" class="btn">Submit Booking Request</button>
+            <button type="submit" class="btn">Send Booking Request</button>
             <p class="form-success" data-form-success role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -280,29 +292,29 @@
         <div class="container">
           <p class="section-subtitle">Testimonials</p>
           <h2 class="h2 section-title">
-            Parents choose LearnView for <span class="span">patient, personal support</span>
+            What parents appreciate about <span class="span">LearnView</span>
           </h2>
 
           <ul class="grid-list">
             <li>
               <div class="testimonial-card">
-                <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                <p>"My child's confidence improved after just a few sessions."</p>
-                <h3 class="h3 card-title">Parent of Grade 8 learner</h3>
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p>"My child started asking better questions and felt less anxious before tests."</p>
+                <h3 class="h3 card-title">Parent, Louis Trichardt</h3>
               </div>
             </li>
             <li>
               <div class="testimonial-card">
-                <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                <p>"The lessons are patient, structured, and focused on my child's needs."</p>
-                <h3 class="h3 card-title">Parent of Grade 11 learner</h3>
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p>"The lessons are calm and structured. We can see where the work is improving."</p>
+                <h3 class="h3 card-title">Parent of a Grade 11 learner</h3>
               </div>
             </li>
             <li>
               <div class="testimonial-card">
-                <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                <p>"LearnView makes tutoring feel personal and supportive."</p>
-                <h3 class="h3 card-title">Parent of Grade 6 learner</h3>
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p>"It feels personal. The tutor takes time to understand how my child learns."</p>
+                <h3 class="h3 card-title">Parent of a Grade 6 learner</h3>
               </div>
             </li>
           </ul>
@@ -314,25 +326,25 @@
           <div class="contact-card">
             <div>
               <p class="section-subtitle">Contact</p>
-              <h2 class="h2 section-title">Ready to help your learner move forward.</h2>
-              <p>Contact LearnView to ask about availability, subjects, lesson types, and booking times.</p>
+              <h2 class="h2 section-title">Speak to LearnView about your child's needs.</h2>
+              <p>Ask about subjects, availability, lesson types, and the best starting point for your learner.</p>
             </div>
 
             <ul class="contact-list">
               <li>
-                <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
+                <span class="contact-icon" aria-hidden="true">WA</span>
                 <a href="https://wa.me/27787460329">WhatsApp 078 746 0329</a>
               </li>
               <li>
-                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                <span class="contact-icon" aria-hidden="true">Call</span>
                 <a href="tel:+27787460329">Call 078 746 0329</a>
               </li>
               <li>
-                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                <span class="contact-icon" aria-hidden="true">Mail</span>
                 <a href="mailto:infolearnview@gmail.com">infolearnview@gmail.com</a>
               </li>
               <li>
-                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                <span class="contact-icon" aria-hidden="true">Map</span>
                 <address>34 Breda, Louis Trichardt, Limpopo, 0920, South Africa</address>
               </li>
             </ul>
@@ -346,7 +358,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-brand">
-        <a href="#home" class="logo">LearnView</a>
+        <a href="#home" class="logo footer-logo">LearnView</a>
         <p>Learn Smarter. Learn Better.</p>
       </div>
 
@@ -369,12 +381,10 @@
   </footer>
 
   <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
-    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    Top
   </a>
 
   <script src="./assets/js/script.js" defer></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 

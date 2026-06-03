@@ -62,6 +62,6 @@ addEventOnElem(bookingForm, 'submit', function (event) {
   localStorage.setItem('learnview-booking-requests', JSON.stringify(bookings));
   bookingForm.reset();
 
-  formSuccess.textContent = 'Thank you. Your booking request has been captured and is ready for Google Sheets integration.';
+  formSuccess.textContent = 'Thank you. Your booking request has been captured. LearnView will follow up to confirm availability.';
   formSuccess.classList.add('active');
 });
