@@ -1,5 +1,7 @@
 'use strict';
 
+document.documentElement.classList.add('js');
+
 const addEventOnElem = function (elem, type, callback) {
   if (!elem) return;
 
@@ -43,6 +45,29 @@ const activeElemOnScroll = function () {
 };
 
 addEventOnElem(window, 'scroll', activeElemOnScroll);
+
+const revealElems = document.querySelectorAll('.reveal');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (reduceMotion) {
+  revealElems.forEach((elem) => elem.classList.add('visible'));
+} else if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElems.forEach((elem) => revealObserver.observe(elem));
+} else {
+  revealElems.forEach((elem) => elem.classList.add('visible'));
+}
 
 const bookingForm = document.querySelector('[data-booking-form]');
 const formSuccess = document.querySelector('[data-form-success]');

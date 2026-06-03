@@ -23,8 +23,8 @@
   --fs-6: 1.45rem;
 
   --section-padding: 58px;
-  --shadow-soft: 0 12px 28px rgba(63, 77, 85, 0.08);
-  --shadow-header: 0 8px 20px rgba(63, 77, 85, 0.07);
+  --shadow-soft: 0 10px 24px rgba(63, 77, 85, 0.055);
+  --shadow-header: 0 7px 18px rgba(63, 77, 85, 0.06);
   --radius-sm: 10px;
   --radius-md: 14px;
   --radius-lg: 18px;
@@ -111,14 +111,14 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--brand-primary);
-  box-shadow: 0 0 0 3px rgba(159, 188, 192, 0.32);
+  border-color: var(--brand-soft-teal);
+  box-shadow: 0 0 0 3px rgba(218, 233, 236, 0.55);
 }
 
 address { font-style: normal; }
 
 :focus-visible {
-  outline: 3px solid rgba(6, 134, 141, 0.45);
+  outline: 3px solid rgba(159, 188, 192, 0.72);
   outline-offset: 3px;
 }
 
@@ -137,6 +137,8 @@ address { font-style: normal; }
 }
 
 .section { padding-block: var(--section-padding); }
+
+.section[id] { scroll-margin-top: 86px; }
 
 .h1,
 .h2,
@@ -205,8 +207,8 @@ address { font-style: normal; }
 }
 
 .btn-secondary:is(:hover, :focus-visible) {
-  background: rgba(218, 233, 236, 0.58);
-  border-color: var(--brand-primary);
+  background: rgba(218, 233, 236, 0.42);
+  border-color: var(--brand-soft-teal);
   color: var(--brand-charcoal);
 }
 
@@ -224,7 +226,7 @@ address { font-style: normal; }
 .section-title .span,
 .hero-title .span {
   display: inline;
-  color: var(--brand-primary);
+  color: inherit;
 }
 
 .section-subtitle,
@@ -433,8 +435,8 @@ address { font-style: normal; }
 .hero {
   padding-block-start: 114px;
   padding-block-end: 54px;
-  background:
-    linear-gradient(180deg, rgba(218, 233, 236, 0.5), rgba(255, 255, 255, 0.94) 52%, var(--white));
+  background: var(--white);
+  border-block-end: 1px solid rgba(218, 233, 236, 0.72);
 }
 
 .hero .container {
@@ -469,21 +471,10 @@ address { font-style: normal; }
   position: relative;
   max-width: 390px;
   padding: 26px;
-  border: 1px solid rgba(159, 188, 192, 0.72);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--white);
   box-shadow: var(--shadow-soft);
-}
-
-.hero-logo-card::after {
-  content: "";
-  position: absolute;
-  inset-inline: 26px;
-  inset-block-end: 0;
-  height: 4px;
-  border-radius: 999px 999px 0 0;
-  background: var(--brand-primary);
-  opacity: 0.85;
 }
 
 .hero-logo-card img {
@@ -497,31 +488,34 @@ address { font-style: normal; }
 
 .services,
 .testimonials {
-  background: rgba(218, 233, 236, 0.28);
+  background: rgba(218, 233, 236, 0.18);
 }
 
 .trust-card,
 .service-card,
-.testimonial-card {
+.testimonial-card,
+.credibility-card {
   height: 100%;
-  border: 1px solid rgba(159, 188, 192, 0.64);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-md);
   background: var(--white);
-  padding: 21px;
-  box-shadow: 0 8px 18px rgba(63, 77, 85, 0.045);
+  padding: 22px;
+  box-shadow: 0 7px 18px rgba(63, 77, 85, 0.04);
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .trust-card:is(:hover, :focus-within),
 .service-card:is(:hover, :focus-within),
-.testimonial-card:is(:hover, :focus-within) {
+.testimonial-card:is(:hover, :focus-within),
+.credibility-card:is(:hover, :focus-within) {
   border-color: var(--brand-soft-teal);
   box-shadow: var(--shadow-soft);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .trust-card .card-icon,
-.service-card .card-icon {
+.service-card .card-icon,
+.credibility-card .card-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -530,8 +524,8 @@ address { font-style: normal; }
   margin-block-end: 15px;
   padding-inline: 10px;
   border-radius: 10px;
-  background: rgba(218, 233, 236, 0.78);
-  color: var(--brand-primary);
+  background: rgba(218, 233, 236, 0.52);
+  color: var(--brand-slate);
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
@@ -540,13 +534,15 @@ address { font-style: normal; }
 
 .trust-card .card-title,
 .service-card .card-title,
-.testimonial-card .card-title {
+.testimonial-card .card-title,
+.credibility-card .card-title {
   margin-block-end: 8px;
 }
 
 .trust-card p,
 .service-card p,
 .testimonial-card p,
+.credibility-card p,
 .about-content p,
 .booking-intro p,
 .contact-card p,
@@ -565,10 +561,9 @@ address { font-style: normal; }
 }
 
 .about-panel {
-  border: 1px solid rgba(159, 188, 192, 0.72);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-lg);
-  background:
-    linear-gradient(180deg, rgba(218, 233, 236, 0.5), rgba(255, 255, 255, 0.92));
+  background: var(--white);
   padding: 26px;
   box-shadow: var(--shadow-soft);
 }
@@ -612,7 +607,7 @@ address { font-style: normal; }
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background: var(--brand-primary);
+  background: var(--brand-soft-teal);
 }
 
 .about-list {
@@ -635,7 +630,7 @@ address { font-style: normal; }
   width: 18px;
   height: 18px;
   margin-block-start: 3px;
-  border: 2px solid var(--brand-primary);
+  border: 2px solid var(--brand-soft-teal);
   border-radius: 999px;
 }
 
@@ -661,7 +656,7 @@ address { font-style: normal; }
 }
 
 .booking-form {
-  border: 1px solid rgba(159, 188, 192, 0.74);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-lg);
   background: var(--white);
   padding: 20px;
@@ -685,35 +680,14 @@ address { font-style: normal; }
   display: none;
   margin-block-start: 14px;
   padding: 11px 13px;
-  border: 1px solid rgba(159, 188, 192, 0.7);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-sm);
-  background: rgba(218, 233, 236, 0.62);
+  background: rgba(218, 233, 236, 0.44);
   color: var(--brand-charcoal);
   font-weight: 700;
 }
 
 .form-success.active { display: block; }
-
-.quote-mark {
-  color: var(--brand-soft-teal);
-  font-family: var(--font-heading);
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 0.8;
-  margin-block-end: 10px;
-}
-
-.testimonial-card p {
-  margin-block-end: 18px;
-  color: var(--brand-charcoal);
-  font-size: 1.72rem;
-  line-height: 1.55;
-}
-
-.testimonial-card .card-title {
-  color: var(--brand-slate);
-  font-size: 1.55rem;
-}
 
 .contact {
   background: var(--white);
@@ -722,11 +696,11 @@ address { font-style: normal; }
 .contact-card {
   display: grid;
   gap: 24px;
-  border: 1px solid rgba(159, 188, 192, 0.7);
-  border-left: 5px solid var(--brand-primary);
+  border: 1px solid rgba(218, 233, 236, 0.95);
   border-radius: var(--radius-lg);
-  background: rgba(218, 233, 236, 0.34);
+  background: var(--white);
   padding: 24px;
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-list {
@@ -749,8 +723,8 @@ address { font-style: normal; }
   min-width: 30px;
   min-height: 24px;
   border-radius: 8px;
-  background: rgba(218, 233, 236, 0.78);
-  color: var(--brand-primary);
+  background: rgba(218, 233, 236, 0.52);
+  color: var(--brand-slate);
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
@@ -765,8 +739,8 @@ address { font-style: normal; }
 }
 
 .footer {
-  border-block-start: 1px solid rgba(159, 188, 192, 0.5);
-  background: rgba(218, 233, 236, 0.44);
+  border-block-start: 1px solid rgba(218, 233, 236, 0.95);
+  background: rgba(218, 233, 236, 0.24);
   padding-block: 36px;
 }
 
@@ -822,6 +796,47 @@ address { font-style: normal; }
   opacity: 1;
   visibility: visible;
   transform: translateY(-6px);
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.has-scrollbar li:nth-child(2) .reveal,
+.grid-list li:nth-child(2) .reveal { transition-delay: 80ms; }
+
+.has-scrollbar li:nth-child(3) .reveal,
+.grid-list li:nth-child(3) .reveal { transition-delay: 140ms; }
+
+.has-scrollbar li:nth-child(4) .reveal,
+.grid-list li:nth-child(4) .reveal { transition-delay: 200ms; }
+
+.grid-list li:nth-child(5) .reveal { transition-delay: 80ms; }
+.grid-list li:nth-child(6) .reveal { transition-delay: 140ms; }
+.grid-list li:nth-child(7) .reveal { transition-delay: 200ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .js .reveal,
+  .js .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (min-width: 575px) {
@@ -938,6 +953,7 @@ address { font-style: normal; }
   }
 
   .grid-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .credibility-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .booking .container { grid-template-columns: 0.8fr 1.2fr; }
 }
 
