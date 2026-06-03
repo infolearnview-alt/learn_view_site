@@ -1,0 +1,1 @@
+window.LEARNVIEW_APPS_SCRIPT_URL = "";

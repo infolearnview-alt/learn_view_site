@@ -71,22 +71,95 @@ if (reduceMotion) {
 
 const bookingForm = document.querySelector('[data-booking-form]');
 const formSuccess = document.querySelector('[data-form-success]');
+const BOOKING_SUCCESS_MESSAGE = 'Thank you. Your booking request has been sent to LearnView. We will contact you shortly.';
+const BOOKING_FAILURE_MESSAGE = 'Booking request could not be sent. Please try again or contact LearnView on WhatsApp.';
 
-addEventOnElem(bookingForm, 'submit', function (event) {
-  event.preventDefault();
+function configuredAppsScriptUrl() {
+  const explicitUrl = (window.LEARNVIEW_APPS_SCRIPT_URL || '').trim();
 
-  const data = Object.fromEntries(new FormData(bookingForm).entries());
-  const bookings = JSON.parse(localStorage.getItem('learnview-booking-requests') || '[]');
+  if (explicitUrl) return explicitUrl;
 
-  bookings.push({
-    ...data,
-    createdAt: new Date().toISOString(),
-    source: 'LearnView public website'
+  try {
+    const nexusState = JSON.parse(localStorage.getItem('learnview-nexus-state-v3') || '{}');
+    return (nexusState.settings && nexusState.settings.apiUrl || '').trim();
+  } catch (error) {
+    return '';
+  }
+}
+
+function setBookingStatus(message, type) {
+  if (!formSuccess) return;
+
+  formSuccess.textContent = message;
+  formSuccess.classList.remove('success', 'error');
+  formSuccess.classList.add('active', type);
+}
+
+function buildBookingPayload(form) {
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  return {
+    id: `BOOK-${Date.now()}`,
+    submittedAt: new Date().toISOString(),
+    parentEmail: (data.parentEmail || '').trim(),
+    studentName: (data.studentName || '').trim(),
+    subject: (data.subject || '').trim(),
+    lessonType: data.lessonType || '',
+    attendanceType: data.attendanceType || '',
+    preferredDate: data.preferredDate || '',
+    preferredTime: data.preferredTime || '',
+    notes: (data.notes || '').trim(),
+    status: 'Pending'
+  };
+}
+
+async function sendBookingRequest(bookingData) {
+  const url = configuredAppsScriptUrl();
+
+  if (!url) {
+    throw new Error('LearnView Apps Script URL is not configured.');
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8'
+    },
+    body: JSON.stringify({
+      action: 'POST',
+      sheet: 'BookingRequests',
+      payload: bookingData
+    })
   });
 
-  localStorage.setItem('learnview-booking-requests', JSON.stringify(bookings));
-  bookingForm.reset();
+  const result = await response.json().catch(() => null);
 
-  formSuccess.textContent = 'Thank you. Your booking request has been captured. LearnView will follow up to confirm availability.';
-  formSuccess.classList.add('active');
+  if (!response.ok || result?.ok === false) {
+    throw new Error(result?.error || 'Booking request failed.');
+  }
+
+  return result;
+}
+
+addEventOnElem(bookingForm, 'submit', async function (event) {
+  event.preventDefault();
+
+  const submitButton = bookingForm.querySelector('button[type="submit"]');
+  const bookingData = buildBookingPayload(bookingForm);
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+  formSuccess?.classList.remove('active', 'success', 'error');
+
+  try {
+    await sendBookingRequest(bookingData);
+    bookingForm.reset();
+    setBookingStatus(BOOKING_SUCCESS_MESSAGE, 'success');
+  } catch (error) {
+    console.error(error);
+    setBookingStatus(BOOKING_FAILURE_MESSAGE, 'error');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Send Booking Request';
+  }
 });

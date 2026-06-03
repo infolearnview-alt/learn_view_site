@@ -13,7 +13,15 @@ Static GitHub Pages website for LearnView tutoring services.
 
 ## Booking Form
 
-The booking form currently stores submitted requests in browser local storage under `learnview-booking-requests`. It is ready to connect later to Google Sheets and LearnView Nexus.
+The booking form posts new requests to the LearnView Nexus Apps Script backend and writes them to the `BookingRequests` sheet.
+
+Set the deployed Apps Script web app URL in:
+
+```js
+assets/js/config.js
+```
+
+Use the same `/exec` URL that is saved in LearnView Nexus **Connection Setup**.
 
 ## Deployment
 

@@ -688,6 +688,14 @@ address { font-style: normal; }
 }
 
 .form-success.active { display: block; }
+.form-success.success {
+  border-color: rgba(159, 188, 192, 0.7);
+  background: rgba(218, 233, 236, 0.46);
+}
+.form-success.error {
+  border-color: rgba(122, 137, 143, 0.42);
+  background: rgba(122, 137, 143, 0.12);
+}
 
 .contact {
   background: var(--white);
